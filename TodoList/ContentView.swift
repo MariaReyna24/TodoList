@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var data: Todo
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List {
+            Text("Todo item #1")
+            Text("Another one")
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(data: Todo(item: [""]))
 }
