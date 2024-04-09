@@ -6,16 +6,13 @@
 //
 
 import Foundation
+import SwiftData
 
-
+@Model
 class Todo: ObservableObject, Identifiable {
-     @Published var item: String
-     @Published var date: Date
-    @Published var listOfTasks: [String]
+    var listOfTasks: [String]
     
-    init(item: String = "", date: Date = Date.now, listOfTasks: [String] = ["Example 1"]) {
-        self.item = item
-        self.date = date
+    init(listOfTasks: [String] = ["Example 1"]) {
         self.listOfTasks = listOfTasks
     }
 }

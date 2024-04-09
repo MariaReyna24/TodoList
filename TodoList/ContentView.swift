@@ -11,6 +11,7 @@ struct ContentView: View {
     @State var text = ""
     @State var isSheetShowing = false
     @ObservedObject var vm: Todo
+    @Environment 
     var body: some View {
         NavigationStack {
             List {
@@ -35,6 +36,4 @@ struct ContentView: View {
 }
 
 
-#Preview {
-    ContentView(vm: Todo())
-}
+
