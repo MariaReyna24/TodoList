@@ -8,15 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var data: Todo
+    @State var text = ""
+    @State var isSheetShowing = false
+    @ObservedObject var vm: Todo
     var body: some View {
-        List {
-            Text("Todo item #1")
-            Text("Another one")
+        NavigationStack {
+            List {
+                ForEach(vm.listOfTasks, id: \.self) { item in
+                    Text(item)
+                } .onDelete(perform: { indexSet in
+                    vm.listOfTasks.remove(atOffsets: indexSet)
+                })
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add") {
+                        isSheetShowing.toggle()
+                    }
+                    .sheet(isPresented: $isSheetShowing) {
+                        AddItem(item: $text, vm: vm)
+                    }
+                }
+            }.navigationTitle("Todo List")
         }
     }
 }
 
+
 #Preview {
-    ContentView(data: Todo(item: [""]))
+    ContentView(vm: Todo())
 }
