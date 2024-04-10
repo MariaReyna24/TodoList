@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+   // #warning("STEP 3: add '@Environment('\'.modelContext') variable")
+   // #warning("STEP 4: add @Query to be able to fetch the data in the container")
     @State var text = ""
     @State var isSheetShowing = false
-    @ObservedObject var vm: Todo
+    @ObservedObject var tasks: Task
     var body: some View {
         NavigationStack {
             List {
-                ForEach(vm.listOfTasks, id: \.self) { item in
-                    Text(item)
-                } .onDelete(perform: { indexSet in
-                    vm.listOfTasks.remove(atOffsets: indexSet)
-                })
+                ForEach(tasks.listofTasks, id: \.self) { task in
+                    Text(task)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -26,7 +26,7 @@ struct ContentView: View {
                         isSheetShowing.toggle()
                     }
                     .sheet(isPresented: $isSheetShowing) {
-                        AddItem(item: $text, vm: vm)
+                        AddItem(task: $text, vm: tasks)
                     }
                 }
             }.navigationTitle("Todo List")
@@ -35,6 +35,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(vm: Todo())
+    ContentView(tasks: Task())
 }
 

@@ -11,7 +11,8 @@ import SwiftUI
 struct TodoListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(vm: Todo())
+            ContentView(tasks: Task())
         }
+       // #warning("STEP 2: add .modelContainer for Todo.self")
     }
 }
