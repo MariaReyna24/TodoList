@@ -13,6 +13,6 @@ struct TodoListApp: App {
         WindowGroup {
             ContentView(tasks: Task())
         }
-       // #warning("STEP 2: add .modelContainer for Todo.self")
+       // #warning("STEP 2: add .modelContainer for Task.self")
     }
 }
