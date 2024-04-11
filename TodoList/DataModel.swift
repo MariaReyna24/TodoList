@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import SwiftData
+
 //#warning("STEP 1: import SwiftData and add @Model to this class")
-class Task: ObservableObject, Identifiable {
+@Model
+class Task {
     
-    @Published var name: String
-    @Published var date: Date
-    @Published var listofTasks: [String]
+    var name: String
+    var date: Date
+    var listofTasks: [String]
     
     init(name: String = "Example 1", date: Date = Date.now, listofTasks: [String] = ["Example 1", "Example 2"]) {
         self.name = name

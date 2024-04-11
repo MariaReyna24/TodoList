@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-   // #warning("STEP 3: add '@Environment('\'.modelContext') variable")
+    //#warning("STEP 3: add '@Environment('\'.modelContext') variable")
+    @Environment(\.modelContext) var modelContext
    // #warning("STEP 4: add @Query variable of type [Task]")
+    @Query var tasks: [Task]
     @State var text = ""
     @State var isSheetShowing = false
-    @ObservedObject var tasks: Task
+    //@ObservedObject var tasks: Task
     var body: some View {
         NavigationStack {
             List {
-                ForEach(tasks.listofTasks, id: \.self) { task in
-                    Text(task)
+                ForEach(tasks) { task in
+                    Text(task.name)
                 }
             }
             .toolbar {
@@ -26,7 +29,7 @@ struct ContentView: View {
                         isSheetShowing.toggle()
                     }
                     .sheet(isPresented: $isSheetShowing) {
-                        AddItem(task: $text, vm: tasks)
+                        AddItem()
                     }
                 }
             }.navigationTitle("Todo List")
@@ -34,7 +37,7 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView(tasks: Task())
-}
+//#Preview {
+//    ContentView()
+//}
 

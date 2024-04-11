@@ -10,22 +10,24 @@ import SwiftUI
 struct AddItem: View {
     @Environment(\.dismiss) var dismiss
 //#warning("Add an @Bindable variable called task of type Task")
-    @Binding var task: String
+    //@Bindable var task: Task
+    @State var newTask = ""
+    @Environment(\.modelContext) var modelContext
 //#warning("Add an @State variable called newTask and initlize an empty string")
 //#warning("Add an @Enviroment variable for the modelContext to access container")
-    @ObservedObject var vm: Task
+   // @ObservedObject var vm: Task
     var body: some View {
         ZStack{
             Color.gray
                 .ignoresSafeArea()
             VStack{
-                TextField("Add Task", text: $task)
+                TextField("Add Task", text: $newTask)
                     .textFieldStyle(.roundedBorder)
                // #warning("change the append method to a modelcontext insert")
                 Button("Add Task") {
-                    vm.listofTasks.append(task)
+                    modelContext.insert(Task(name:newTask))
                     dismiss()
-                    task = ""
+                    newTask = ""
                 }
                 .foregroundStyle(.white)
                 .padding()
@@ -37,5 +39,5 @@ struct AddItem: View {
 }
 
 #Preview {
-    AddItem(task: .constant(""), vm: Task())
+    AddItem()
 }

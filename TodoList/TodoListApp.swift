@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct TodoListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(tasks: Task())
-        }
+            ContentView()
+        }.modelContainer(for: Task.self)
        // #warning("STEP 2: add .modelContainer for Task.self")
     }
 }
