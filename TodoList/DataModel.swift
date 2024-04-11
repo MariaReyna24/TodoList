@@ -7,7 +7,7 @@
 
 import Foundation
 //#warning("STEP 1: import SwiftData and add @Model to this class")
-class Task: ObservableObject, Identifiable {
+class Task: ObservableObject {
     
     @Published var name: String
     @Published var date: Date

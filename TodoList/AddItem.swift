@@ -9,10 +9,9 @@ import SwiftUI
 
 struct AddItem: View {
     @Environment(\.dismiss) var dismiss
-//#warning("Add an @Bindable variable called task of type Task")
     @Binding var task: String
-//#warning("Add an @State variable called newTask and initlize an empty string")
-//#warning("Add an @Enviroment variable for the modelContext to access container")
+//#warning("STEP 5:Add an @State variable called newTask and initlize an empty string")
+//#warning("Step 6: Add an @Enviroment variable for the modelContext to access container")
     @ObservedObject var vm: Task
     var body: some View {
         ZStack{
