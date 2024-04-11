@@ -15,4 +15,4 @@ Step 3 & 4 can be found in the ContenView, Step 3 says "import SwiftData & add @
 Step 5 & 6 are found in the AddItem view they, Step 5 says "Add an @State variable called newTask and initlize an empty string" and step 6 says "Add an @Enviroment variable for the modelContext to access container"
 
 # Guiding Resources
-[This is the tutorial I used persoanlly to understand SwiftData so this goes into more detail](https://www.hackingwithswift.com/quick-start/swiftdata/swiftdata-tutorial-building-a-complete-project)
+[This is the tutorial i used personally to understand SwiftData, and this tutorial goes further into detail about this topic](https://www.hackingwithswift.com/quick-start/swiftdata/swiftdata-tutorial-building-a-complete-project)
