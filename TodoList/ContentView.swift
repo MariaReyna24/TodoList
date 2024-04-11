@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-   // #warning("STEP 3: add '@Environment('\'.modelContext') variable")
-   // #warning("STEP 4: add @Query variable of type [Task]")
+    #warning("STEP 3: import SwiftData & add '@Environment('\'.modelContext') variable")
+    #warning("STEP 4: add @Query variable of type [Task]")
     @State var text = ""
     @State var isSheetShowing = false
     @ObservedObject var tasks: Task

@@ -13,6 +13,6 @@ struct TodoListApp: App {
         WindowGroup {
             ContentView(tasks: Task())
         }
-       // #warning("STEP 2: add .modelContainer for Task.self")
+        #warning("STEP 2: import SwiftData & add .modelContainer for Task.self")
     }
 }

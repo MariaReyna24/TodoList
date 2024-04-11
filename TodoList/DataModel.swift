@@ -6,7 +6,8 @@
 //
 
 import Foundation
-//#warning("STEP 1: import SwiftData and add @Model to this class")
+
+#warning("STEP 1: import SwiftData and add @Model to this class")
 class Task: ObservableObject {
     
     @Published var name: String
