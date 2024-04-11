@@ -1,5 +1,4 @@
 # Todo List w/ SwiftData
-# Todo List w/ SwiftData
 
 This project is just one of the many ways you can practice implementing SwiftData. There are warnings throughout the app that contain step-by-step instructions to implement SwiftData.
 
