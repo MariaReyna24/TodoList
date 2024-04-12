@@ -14,5 +14,23 @@ Steps 3 & 4 can be found in the `ContentView`. Step 3 says "import SwiftData and
 ## Step 5 & 6:
 Steps 5 & 6 are found in the `AddItem` view. Step 5 says "Add an `@State` variable called `newTask` and initialize an empty string," and Step 6 says "Add an `@Environment` variable for the `modelContext` to access the container."
 
+## Step 7: Peview Code
+```
+#Preview {
+    do {
+        // Makes a Configs the model to be stored inMemory
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        //creates that container we are using for this preview
+        let container = try ModelContainer(for: Task.self, configurations: config)
+        // this is an example to fill in the code but we dont need it cuz our content view doesnt take an ex data it only displays that data.
+        return ContentView()
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create a model container")
+    }
+}
+
+```
+
 ## Guiding Resources
 [This is the tutorial I used personally to understand SwiftData, and this tutorial goes further into detail about this topic, it's a Hacking w/ Swift Tutorial](https://www.hackingwithswift.com/quick-start/swiftdata/swiftdata-tutorial-building-a-complete-project)
